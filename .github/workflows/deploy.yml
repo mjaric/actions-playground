@@ -1,8 +1,8 @@
-name: "Deployment: ${{ github.event.workflow_run.conclusion }}"
+name: "Deployment"
 on:
   workflow_run:
     workflows:
-      - "Release"
+      - "Build a Release"
     types:
       - completed
 
