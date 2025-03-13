@@ -14,4 +14,9 @@ jobs:
 
         steps:
         - name: Download Release
-          run: echo "test"
+          run: |
+            echo "Downloading release ${{ github.event.workflow_run.head_branch }}"
+            gh release download ${{ github.event.workflow_run.head_branch }} --dir=build
+        - name: Listing
+          run: ls -la build
+
