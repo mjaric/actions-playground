@@ -47,8 +47,11 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       tag: ${{ github.ref_name }}
-
     steps:
+      # We need this since release packs source code too
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Download Build Artifact
         uses: actions/download-artifact@v4
         with:
