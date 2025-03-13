@@ -47,6 +47,11 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       tag: ${{ github.ref_name }}
+
+    permissions:
+      contents: write
+      packages: write
+
     steps:
       # We need this since release packs source code too
       - name: Checkout repository
@@ -62,10 +67,10 @@ jobs:
       - name: Verify that build artifact is present (error if not)
         run: |
           if [ ! -d "build" ]; then
-              echo "Build artifact not found"
+              echo "Build artefact not found"
               exit 1
           fi
-          echo "Build artifact found"
+          echo "Build artefact found"
 
       - name: Create Draft Release
         env:
