@@ -1,0 +1,7 @@
+name: Deployment
+on:
+  workflow_run:
+    workflows:
+      - "Release"
+    types:
+      - completed
