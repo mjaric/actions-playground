@@ -1,4 +1,4 @@
-name: Deployment
+name: "Deployment commit message: ${{ github.event.workflow_run.conclusion }}"
 on:
   workflow_run:
     workflows:
