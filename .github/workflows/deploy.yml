@@ -16,18 +16,16 @@ jobs:
       contents: write
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
       - name: Download Release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
         run: |
           echo "Downloading release ${{ github.event.workflow_run.head_branch }}"
           gh release download ${{ github.event.workflow_run.head_branch }} --pattern "build.zip" --dir .
       - name: Listing
         run: |
-          unzip build.zip -d build
+          unzip build.zip
           ls -la
           ls -la build
 
