@@ -1,4 +1,4 @@
-name: Deployment
+name: "Deployment: ${{ github.event.workflow_run.conclusion }}"
 on:
   workflow_run:
     workflows:
